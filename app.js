@@ -8,10 +8,10 @@ const port = 3000;
 
 app.use(express.json());
 
-//just for fresh start
-app.get("/", (req, res) => {
-  res.send("Welcome to the Parts API!");
-});
+// //just for fresh start
+// app.get("/", (req, res) => {
+//   res.send("Welcome to the Parts API!");
+// });
 
 // Serve uploaded images statically
 app.use("/uploads", express.static("uploads"));
