@@ -1,7 +1,7 @@
 const express = require("express");
-const Part = require("./model/part.js"); // Model
-require("./db/conn.js"); // MongoDB connection
-const upload = require("./middleware/uploads.js"); // Multer setup
+const Part = require("../model/part.js"); // Model
+require("../db/conn.js"); // MongoDB connection
+const upload = require("../middleware/uploads.js"); // Multer setup
 
 const app = express();
 const port = 3000;
@@ -45,7 +45,7 @@ app.post("/parts", upload.single("image"), async (req, res) => {
   }
 });
 
-// GET route: Fetch all parts
+// GET route: Fetch all part
 app.get("/parts", async (req, res) => {
   try {
     const parts = await Part.find();
