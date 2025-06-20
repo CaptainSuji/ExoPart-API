@@ -1,12 +1,17 @@
 const express = require("express");
-const Part = require("./model/part"); // Model
-require("./db/conn"); // MongoDB connection
+const Part = require("./model/part.js"); // Model
+require("./db/conn.js"); // MongoDB connection
 const upload = require("./middleware/uploads.js"); // Multer setup
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
+
+//just for fresh start
+app.get("/", (req, res) => {
+  res.send("Welcome to the Parts API!");
+});
 
 // Serve uploaded images statically
 app.use("/uploads", express.static("uploads"));
