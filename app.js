@@ -1,7 +1,7 @@
 const express = require("express");
-const Part = require("../model/part.js"); // Model
-require("../db/conn.js"); // MongoDB connection
-const upload = require("../middleware/uploads.js"); // Multer setup
+const Part = require("./model/part.js"); // Model
+require("./db/conn.js"); // MongoDB connection
+const upload = require("./middleware/uploads.js"); // Multer setup
 
 const app = express();
 const port = 3000;
@@ -21,10 +21,7 @@ app.post("/parts", upload.single("image"), async (req, res) => {
   const { name, description, note, partNumber } = req.body;
   const imageUrl = req.file ? req.file.buffer.toString("base64") : null; // Get the image path from multer
 
-  // // Validate required fields
-  // if (!name || !description || !note || !partNumber) {
-  //   return res.status(400).json({ error: "All fields are required" });
-  // }
+
 
   try {
     const part = new Part({
